@@ -1,0 +1,30 @@
+<div *ngIf="!atividades">
+    <mat-progress-bar mode="buffer"></mat-progress-bar>
+</div>
+<div class="carousel-atividade" style="margin-left: 3em; margin-top: 100px; margin-right: 3em; background-color: #e5e5e5; padding: 2em;">
+    <p-carousel [value]="atividades" [numVisible]="1" [numScroll]="1" [circular]="false">
+        <ng-template let-atividade pTemplate="item">
+            <div class="descricao-atividade" style="margin-top: 1em;">
+                <b>{{atividade.descricao}}</b>
+            </div>
+            <div>
+                <div [ngSwitch]="atividade.atividadeTipo" style="margin-top: 5em;">
+                    <div *ngSwitchCase="1">
+                        area de texto
+                    </div>
+                    <div *ngSwitchCase="2">
+                        <div *ngFor="let alternativas for atividade.alternativas; index as i; first as isFirst">
+                            <div class="field-radiobutton">
+                                <p-radioButton name="alternativa" value="alternativa[{{i}}]" [(ngModel)]="resposta[1]" inputId="alternativa{{i}}"></p-radioButton>
+                                <label for="alternativa{{i}}">Teste</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngSwitchDefault>
+                        <textarea name="" id="" cols="10em" rows="10em"></textarea>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>
