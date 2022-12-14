@@ -15,5 +15,6 @@ export class Atividade{
     atividadeTipo !:	number | null
     grauDificuldadeId !:	number | null;
     grauDificuldade !:	GrauDificuldade | null
+    enunciado !: String | null
     alternativas !: String[] | null
 }

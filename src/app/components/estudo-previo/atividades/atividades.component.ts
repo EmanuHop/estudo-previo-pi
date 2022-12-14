@@ -16,7 +16,7 @@ export class AtividadesComponent implements OnInit {
   atividades : Atividade[]
   atividade1 : Atividade = {
     id: 1,
-    descricao: "faca qualquer cooisa",
+    descricao: "Qual a melhor linguaguem de programação?::Java::Python::C++::Angular",
     dataInicio: null,
     dataFim: null,
     atividadeTipo: 1,
@@ -27,40 +27,45 @@ export class AtividadesComponent implements OnInit {
     situacaoAprendizagem: null,
     situacaoAprendizagemId: null,
     status: null,
-    alternativas: null
-  }
-  atividade2 : Atividade = {
-    id: 1,
-    descricao: "faca qualquer cooisa12",
-    dataInicio: null,
-    dataFim: null,
-    atividadeTipo: 2,
-    grauDificuldade: null,
-    atividadeTipoId: null,
-    grauDificuldadeId: null,
-    ordem: null,
-    situacaoAprendizagem: null,
-    situacaoAprendizagemId: null,
-    status: null,
-    alternativas: null
+    alternativas: null,
+    enunciado: null
   }
   constructor(private atividadesService : AtividadesService,
     private route: ActivatedRoute) { 
+      
     }
     
     loading: boolean = true;
 
     
     ngOnInit(): void {
-      this.situacaoId = this.route.snapshot.params['id'];
-      this.atividadesService.ObterAtividadePorSituacaoId(1).subscribe(resultado =>{
-        this.atividades = resultado
-        this.loading = false;
-        this.atividades.push(this.atividade1)
-        this.atividades.push(this.atividade2)
-      });
-      this.atividades.forEach((atividade, index) => {
-        
-      });
+      this.atividades = this.atividadesService.atividades;
+      // this.atividadesService.atividades.forEach(element => {
+      //   this.atividades.push(element)
+      // });
+      // this.situacaoId = this.route.snapshot.params['id'];
+      // this.atividadesService.ObterAtividadePorSituacaoId(1).subscribe(resultado =>{
+      //   this.atividades = resultado
+      //   this.atividades.push(this.atividade1)
+      // });
+      // this.atividades.forEach((atividade, index) => {
+      //   if(atividade.atividadeTipo == 1){
+      //     atividade.enunciado = atividade.descricao;
+      //   }
+      //   else{
+      //     if(atividade.atividadeTipo == 20){
+      //       let enunciados : String[] = atividade.descricao.split("::");
+      //       atividade.enunciado = enunciados[0];
+      //       for (let index = 1; index < enunciados.length; index++) {
+      //         atividade.alternativas?.push(enunciados[index]);
+      //       } 
+      //     }
+      //   }
+      // });
+      this.loading = false;
+  }
+
+  enviarResposta(){
+    
   }
 }

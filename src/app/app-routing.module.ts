@@ -58,7 +58,7 @@ const routes: Routes = [
         path: 'ofertas/atualizaroferta/:id', component: AtualizarOfertaComponent
       },
       {
-        path: 'cursos/estudoprevio', component: EstudoPrevioComponent
+        path: 'cursos/estudoprevio/', component: EstudoPrevioComponent
       },
       {
         path: 'cursos/atividades/:id', component: AtividadesComponent

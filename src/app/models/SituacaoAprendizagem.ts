@@ -8,6 +8,7 @@ export class SituacaoAprendizagem{
     descricao !: string
     ordem !: number
     status !: string
+    duracao !: number
     planejamentoUCId !: number
     planejamentoUC !:	planejamentoUC
     grauDificuldadeId !: number
